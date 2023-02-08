@@ -1494,7 +1494,7 @@ VOID PeerVHTAction(RTMP_ADAPTER *pAd, MLME_QUEUE_ELEM *Elem)
 
 		MTWF_LOG(DBG_CAT_PROTO, DBG_SUBCAT_ALL, DBG_LVL_TRACE, ("ACTION - Operating Mode Notification action---->\n"));
 		hex_dump("OperatingModeNotify", &Elem->Msg[0], Elem->MsgLen);
-		MTWF_LOG(DBG_CAT_PROTO, DBG_SUBCAT_ALL, DBG_LVL_TRACE, ("\t RxNssType=%d, RxNss=%d, ChBW=%d\n",
+		MTWF_LOG(DBG_CAT_PROTO, DBG_SUBCAT_ALL, DBG_LVL_INFO, ("\t RxNssType=%d, RxNss=%d, ChBW=%d\n",
 				 op_mode->rx_nss_type, op_mode->rx_nss, op_mode->ch_width));
 
 		if (op_mode->rx_nss_type == 0) {

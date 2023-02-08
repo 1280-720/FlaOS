@@ -384,7 +384,7 @@ static USHORT update_associated_mac_entry(
 			}
 
 
-			DBGPRINT(RT_DEBUG_OFF, ("%s(): Peer's PhyCap=>Mode:%s, BW:%s\n", 
+			DBGPRINT(RT_DEBUG_INFO, ("%s(): Peer's PhyCap=>Mode:%s, BW:%s\n", 
 				__FUNCTION__,
 				get_phymode_str(pEntry->MaxHTPhyMode.field.MODE),
 				get_bw_str(pEntry->MaxHTPhyMode.field.BW)));
@@ -415,7 +415,7 @@ static USHORT update_associated_mac_entry(
 		{
 			pEntry->operating_mode = ie_list->operating_mode;
 			pEntry->force_op_mode = TRUE;
-			DBGPRINT(RT_DEBUG_OFF, ("%s(): Peer's OperatingMode=>RxNssType: %d, RxNss: %d, ChBW: %d\n",
+			DBGPRINT(RT_DEBUG_INFO, ("%s(): Peer's OperatingMode=>RxNssType: %d, RxNss: %d, ChBW: %d\n",
 				__FUNCTION__, pEntry->operating_mode.rx_nss_type,
 				pEntry->operating_mode.rx_nss,
 				pEntry->operating_mode.ch_width));		

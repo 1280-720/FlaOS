@@ -9,7 +9,7 @@ no-resolv
 server=127.0.0.1#5335
 EOF
 /sbin/restart_dhcpd
-logger -t "AdGuardHome" "添加DNS转发到5335端口"
+logger -t "AdGuardHome" "Add DNS Forwarding to port 5335"
 fi
 }
 del_dns() {
@@ -34,7 +34,7 @@ set_iptable()
 		ip6tables -t nat -A PREROUTING -p tcp -d $IP --dport 53 -j REDIRECT --to-ports 5335 >/dev/null 2>&1
 		ip6tables -t nat -A PREROUTING -p udp -d $IP --dport 53 -j REDIRECT --to-ports 5335 >/dev/null 2>&1
 	done
-    logger -t "AdGuardHome" "重定向53端口"
+    logger -t "AdGuardHome" "Redirect to port 53"
     fi
 }
 
@@ -65,7 +65,7 @@ bind_host: 0.0.0.0
 bind_port: 3030
 auth_name: adguardhome
 auth_pass: adguardhome
-language: zh-cn
+language: en-us
 rlimit_nofile: 0
 dns:
   bind_host: 0.0.0.0
@@ -79,7 +79,7 @@ dns:
   ratelimit_whitelist: []
   refuse_any: true
   bootstrap_dns:
-  - 223.5.5.5
+  - 9.9.9.10
   all_servers: true
   allowed_clients: []
   disallowed_clients: []
@@ -90,7 +90,7 @@ dns:
   safebrowsing_enabled: false
   resolveraddress: ""
   upstream_dns:
-  - 223.5.5.5
+  - 8.8.8.8
 tls:
   enabled: false
   server_name: ""
@@ -139,7 +139,7 @@ start_adg(){
 	getconfig
 	change_dns
 	set_iptable
-	logger -t "AdGuardHome" "运行AdGuardHome"
+	logger -t "AdGuardHome" "Start AdGuardHome"
 	eval "/tmp/AdGuardHome/AdGuardHome -c $adg_file -w /tmp/AdGuardHome -v" &
 
 }

@@ -6574,38 +6574,38 @@ INT show_sysinfo_proc(RTMP_ADAPTER *pAd, PSTRING arg)
 	struct wifi_dev *wdev;
 
 	
-	DBGPRINT(RT_DEBUG_OFF, ("Device Instance\n"));
+	DBGPRINT(RT_DEBUG_INFO, ("Device Instance\n"));
 	for (idx = 0; idx < WDEV_NUM_MAX; idx++) {
-		DBGPRINT(RT_DEBUG_OFF, ("\tWDEV %02d:", idx));
+		DBGPRINT(RT_DEBUG_INFO, ("\tWDEV %02d:", idx));
 		if (pAd->wdev_list[idx])
 		{
 			UCHAR *str = NULL;
 
 			wdev = pAd->wdev_list[idx];
-			DBGPRINT(RT_DEBUG_OFF, ("\n\t\tName/Type:%s/%s\n",
+			DBGPRINT(RT_DEBUG_INFO, ("\n\t\tName/Type:%s/%s\n",
 						RTMP_OS_NETDEV_GET_DEVNAME(wdev->if_dev),
 						wdev_type2str(wdev->wdev_type)));
-			DBGPRINT(RT_DEBUG_OFF, ("\t\tListIdx:%d\n", wdev->wdev_idx));
-			DBGPRINT(RT_DEBUG_OFF, ("\t\tMacAddr:%02x:%02x:%02x:%02x:%02x:%02x\n",
+			DBGPRINT(RT_DEBUG_INFO, ("\t\tListIdx:%d\n", wdev->wdev_idx));
+			DBGPRINT(RT_DEBUG_INFO, ("\t\tMacAddr:%02x:%02x:%02x:%02x:%02x:%02x\n",
 						PRINT_MAC(wdev->if_addr)));
-			DBGPRINT(RT_DEBUG_OFF, ("\t\tBSSID:%02x:%02x:%02x:%02x:%02x:%02x\n",
+			DBGPRINT(RT_DEBUG_INFO, ("\t\tBSSID:%02x:%02x:%02x:%02x:%02x:%02x\n",
 						PRINT_MAC(wdev->bssid)));
 			str = wmode_2_str(wdev->PhyMode);
 			if (str) {
-				DBGPRINT(RT_DEBUG_OFF, ("\t\tPhyMode:%s\n", str));
+				DBGPRINT(RT_DEBUG_INFO, ("\t\tPhyMode:%s\n", str));
 				os_free_mem(pAd, str);
 			}
-			DBGPRINT(RT_DEBUG_OFF, ("\t\tChannel:%d\n", wdev->channel));
-			DBGPRINT(RT_DEBUG_OFF, ("\t\tPortSecured/AllowTx: %d:%d\n",
+			DBGPRINT(RT_DEBUG_INFO, ("\t\tChannel:%d\n", wdev->channel));
+			DBGPRINT(RT_DEBUG_INFO, ("\t\tPortSecured/AllowTx: %d:%d\n",
 						wdev->PortSecured, wdev->allow_data_tx));
-			DBGPRINT(RT_DEBUG_OFF, ("\t\ttx_pkt_checker:%p\n", wdev->tx_pkt_allowed));
+			DBGPRINT(RT_DEBUG_INFO, ("\t\ttx_pkt_checker:%p\n", wdev->tx_pkt_allowed));
 
-			DBGPRINT(RT_DEBUG_OFF, ("\t\tif_dev:0x%p \tfunc_dev:0x%p \tsys_handle:0x%p\n",
+			DBGPRINT(RT_DEBUG_INFO, ("\t\tif_dev:0x%p \tfunc_dev:0x%p \tsys_handle:0x%p\n",
 						wdev->if_dev, wdev->func_dev, wdev->sys_handle));
 		}
 		else
 		{
-			DBGPRINT(RT_DEBUG_OFF, ("\n"));
+			DBGPRINT(RT_DEBUG_INFO, ("\n"));
 		}
 		
 	}

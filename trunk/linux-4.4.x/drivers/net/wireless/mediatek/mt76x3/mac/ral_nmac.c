@@ -34,19 +34,19 @@ VOID dumpRxFCEInfo(RTMP_ADAPTER *pAd, RXFCE_INFO *pRxFceInfo)
 {
 	hex_dump("RxFCEInfo Raw Data", (UCHAR *)pRxFceInfo, sizeof(RXFCE_INFO));
 
-	DBGPRINT(RT_DEBUG_OFF, ("RxFCEInfo Fields:\n"));
+	DBGPRINT(RT_DEBUG_INFO, ("RxFCEInfo Fields:\n"));
 
-	DBGPRINT(RT_DEBUG_OFF, ("\tinfo_type=%d\n", pRxFceInfo->info_type));
-	DBGPRINT(RT_DEBUG_OFF, ("\ts_port=%d\n", pRxFceInfo->s_port));
-	DBGPRINT(RT_DEBUG_OFF, ("\tqsel=%d\n", pRxFceInfo->qsel));
-	DBGPRINT(RT_DEBUG_OFF, ("\tpcie_intr=%d\n", pRxFceInfo->pcie_intr));
-	DBGPRINT(RT_DEBUG_OFF, ("\tmac_len=%d\n", pRxFceInfo->mac_len));
-	DBGPRINT(RT_DEBUG_OFF, ("\tl3l4_done=%d\n", pRxFceInfo->l3l4_done));
-	DBGPRINT(RT_DEBUG_OFF, ("\tpkt_80211=%d\n", pRxFceInfo->pkt_80211));
-	DBGPRINT(RT_DEBUG_OFF, ("\tip_err=%d\n", pRxFceInfo->ip_err));
-	DBGPRINT(RT_DEBUG_OFF, ("\ttcp_err=%d\n", pRxFceInfo->tcp_err));
-	DBGPRINT(RT_DEBUG_OFF, ("\tudp_err=%d\n", pRxFceInfo->udp_err));
-	DBGPRINT(RT_DEBUG_OFF, ("\tpkt_len=%d\n", pRxFceInfo->pkt_len));
+	DBGPRINT(RT_DEBUG_INFO, ("\tinfo_type=%d\n", pRxFceInfo->info_type));
+	DBGPRINT(RT_DEBUG_INFO, ("\ts_port=%d\n", pRxFceInfo->s_port));
+	DBGPRINT(RT_DEBUG_INFO, ("\tqsel=%d\n", pRxFceInfo->qsel));
+	DBGPRINT(RT_DEBUG_INFO, ("\tpcie_intr=%d\n", pRxFceInfo->pcie_intr));
+	DBGPRINT(RT_DEBUG_INFO, ("\tmac_len=%d\n", pRxFceInfo->mac_len));
+	DBGPRINT(RT_DEBUG_INFO, ("\tl3l4_done=%d\n", pRxFceInfo->l3l4_done));
+	DBGPRINT(RT_DEBUG_INFO, ("\tpkt_80211=%d\n", pRxFceInfo->pkt_80211));
+	DBGPRINT(RT_DEBUG_INFO, ("\tip_err=%d\n", pRxFceInfo->ip_err));
+	DBGPRINT(RT_DEBUG_INFO, ("\ttcp_err=%d\n", pRxFceInfo->tcp_err));
+	DBGPRINT(RT_DEBUG_INFO, ("\tudp_err=%d\n", pRxFceInfo->udp_err));
+	DBGPRINT(RT_DEBUG_INFO, ("\tpkt_len=%d\n", pRxFceInfo->pkt_len));
 }
 #endif /* RLT_MAC */
 

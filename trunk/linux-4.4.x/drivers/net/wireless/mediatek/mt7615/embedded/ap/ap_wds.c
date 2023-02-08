@@ -418,7 +418,7 @@ MAC_TABLE_ENTRY *MacTableInsertWDSEntry(
 					vht_mode_adjust(pAd, pEntry, &vht_cap, NULL);
 					dot11_vht_mcs_to_internal_mcs(pAd, wdev, &vht_cap, &pEntry->MaxHTPhyMode);
 					set_vht_cap(pAd, pEntry, &vht_cap);
-					MTWF_LOG(DBG_CAT_AP, DBG_SUBCAT_ALL, DBG_LVL_OFF, ("%s(): Peer's PhyCap=>Mode:%s, BW:%s, MCS: 0x%x (Word = 0x%x)\n",
+					MTWF_LOG(DBG_CAT_AP, DBG_SUBCAT_ALL, DBG_LVL_INFO, ("%s(): Peer's PhyCap=>Mode:%s, BW:%s, MCS: 0x%x (Word = 0x%x)\n",
 							 __func__,
 							 get_phymode_str(pEntry->MaxHTPhyMode.field.MODE),
 							 get_bw_str(pEntry->MaxHTPhyMode.field.BW),

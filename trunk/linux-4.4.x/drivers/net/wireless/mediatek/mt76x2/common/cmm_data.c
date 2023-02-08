@@ -53,38 +53,38 @@ VOID dump_rxinfo(RTMP_ADAPTER *pAd, RXINFO_STRUC *pRxInfo)
 {
 	hex_dump("RxInfo Raw Data", (UCHAR *)pRxInfo, sizeof(RXINFO_STRUC));
 
-	DBGPRINT(RT_DEBUG_OFF, ("RxInfo Fields:\n"));
+	DBGPRINT(RT_DEBUG_INFO, ("RxInfo Fields:\n"));
 
-	DBGPRINT(RT_DEBUG_OFF, ("\tBA=%d\n", pRxInfo->BA));
-	DBGPRINT(RT_DEBUG_OFF, ("\tDATA=%d\n", pRxInfo->DATA));
-	DBGPRINT(RT_DEBUG_OFF, ("\tNULLDATA=%d\n", pRxInfo->NULLDATA));
-	DBGPRINT(RT_DEBUG_OFF, ("\tFRAG=%d\n", pRxInfo->FRAG));
-	DBGPRINT(RT_DEBUG_OFF, ("\tU2M=%d\n", pRxInfo->U2M));
-	DBGPRINT(RT_DEBUG_OFF, ("\tMcast=%d\n", pRxInfo->Mcast));
-	DBGPRINT(RT_DEBUG_OFF, ("\tBcast=%d\n", pRxInfo->Bcast));
-	DBGPRINT(RT_DEBUG_OFF, ("\tMyBss=%d\n", pRxInfo->MyBss));
-	DBGPRINT(RT_DEBUG_OFF, ("\tCrc=%d\n", pRxInfo->Crc));
-	DBGPRINT(RT_DEBUG_OFF, ("\tCipherErr=%d\n", pRxInfo->CipherErr));
-	DBGPRINT(RT_DEBUG_OFF, ("\tAMSDU=%d\n", pRxInfo->AMSDU));
-	DBGPRINT(RT_DEBUG_OFF, ("\tHTC=%d\n", pRxInfo->HTC));
-	DBGPRINT(RT_DEBUG_OFF, ("\tRSSI=%d\n", pRxInfo->RSSI));
-	DBGPRINT(RT_DEBUG_OFF, ("\tL2PAD=%d\n", pRxInfo->L2PAD));
-	DBGPRINT(RT_DEBUG_OFF, ("\tAMPDU=%d\n", pRxInfo->AMPDU));
-	DBGPRINT(RT_DEBUG_OFF, ("\tDecrypted=%d\n", pRxInfo->Decrypted));
-	DBGPRINT(RT_DEBUG_OFF, ("\tBssIdx3=%d\n", pRxInfo->BssIdx3));
-	DBGPRINT(RT_DEBUG_OFF, ("\twapi_kidx=%d\n", pRxInfo->wapi_kidx));
-	DBGPRINT(RT_DEBUG_OFF, ("\tpn_len=%d\n", pRxInfo->pn_len));
-	DBGPRINT(RT_DEBUG_OFF, ("\tsw_fc_type0=%d\n", pRxInfo->action_wanted));
-	DBGPRINT(RT_DEBUG_OFF, ("\tsw_fc_type1=%d\n", pRxInfo->sw_fc_type1));
-	DBGPRINT(RT_DEBUG_OFF, ("\tprobe_rsp=%d\n", pRxInfo->probe_rsp));
-	DBGPRINT(RT_DEBUG_OFF, ("\tbeacon=%d\n", pRxInfo->beacon));
-	DBGPRINT(RT_DEBUG_OFF, ("\tdisasso=%d\n", pRxInfo->disasso));
-	DBGPRINT(RT_DEBUG_OFF, ("\tdeauth=%d\n", pRxInfo->deauth));
-	DBGPRINT(RT_DEBUG_OFF, ("\taction_wanted=%d\n", pRxInfo->action_wanted));
-	DBGPRINT(RT_DEBUG_OFF, ("\trsv=%d\n", pRxInfo->rsv));	
+	DBGPRINT(RT_DEBUG_INFO, ("\tBA=%d\n", pRxInfo->BA));
+	DBGPRINT(RT_DEBUG_INFO, ("\tDATA=%d\n", pRxInfo->DATA));
+	DBGPRINT(RT_DEBUG_INFO, ("\tNULLDATA=%d\n", pRxInfo->NULLDATA));
+	DBGPRINT(RT_DEBUG_INFO, ("\tFRAG=%d\n", pRxInfo->FRAG));
+	DBGPRINT(RT_DEBUG_INFO, ("\tU2M=%d\n", pRxInfo->U2M));
+	DBGPRINT(RT_DEBUG_INFO, ("\tMcast=%d\n", pRxInfo->Mcast));
+	DBGPRINT(RT_DEBUG_INFO, ("\tBcast=%d\n", pRxInfo->Bcast));
+	DBGPRINT(RT_DEBUG_INFO, ("\tMyBss=%d\n", pRxInfo->MyBss));
+	DBGPRINT(RT_DEBUG_INFO, ("\tCrc=%d\n", pRxInfo->Crc));
+	DBGPRINT(RT_DEBUG_INFO, ("\tCipherErr=%d\n", pRxInfo->CipherErr));
+	DBGPRINT(RT_DEBUG_INFO, ("\tAMSDU=%d\n", pRxInfo->AMSDU));
+	DBGPRINT(RT_DEBUG_INFO, ("\tHTC=%d\n", pRxInfo->HTC));
+	DBGPRINT(RT_DEBUG_INFO, ("\tRSSI=%d\n", pRxInfo->RSSI));
+	DBGPRINT(RT_DEBUG_INFO, ("\tL2PAD=%d\n", pRxInfo->L2PAD));
+	DBGPRINT(RT_DEBUG_INFO, ("\tAMPDU=%d\n", pRxInfo->AMPDU));
+	DBGPRINT(RT_DEBUG_INFO, ("\tDecrypted=%d\n", pRxInfo->Decrypted));
+	DBGPRINT(RT_DEBUG_INFO, ("\tBssIdx3=%d\n", pRxInfo->BssIdx3));
+	DBGPRINT(RT_DEBUG_INFO, ("\twapi_kidx=%d\n", pRxInfo->wapi_kidx));
+	DBGPRINT(RT_DEBUG_INFO, ("\tpn_len=%d\n", pRxInfo->pn_len));
+	DBGPRINT(RT_DEBUG_INFO, ("\tsw_fc_type0=%d\n", pRxInfo->action_wanted));
+	DBGPRINT(RT_DEBUG_INFO, ("\tsw_fc_type1=%d\n", pRxInfo->sw_fc_type1));
+	DBGPRINT(RT_DEBUG_INFO, ("\tprobe_rsp=%d\n", pRxInfo->probe_rsp));
+	DBGPRINT(RT_DEBUG_INFO, ("\tbeacon=%d\n", pRxInfo->beacon));
+	DBGPRINT(RT_DEBUG_INFO, ("\tdisasso=%d\n", pRxInfo->disasso));
+	DBGPRINT(RT_DEBUG_INFO, ("\tdeauth=%d\n", pRxInfo->deauth));
+	DBGPRINT(RT_DEBUG_INFO, ("\taction_wanted=%d\n", pRxInfo->action_wanted));
+	DBGPRINT(RT_DEBUG_INFO, ("\trsv=%d\n", pRxInfo->rsv));	
 
 #ifdef RTMP_MAC
-	DBGPRINT(RT_DEBUG_OFF, ("\t"));
+	DBGPRINT(RT_DEBUG_INFO, ("\t"));
 #endif /* RTMP_MAC */
 }
 
@@ -5167,9 +5167,9 @@ BOOLEAN rtmp_rx_done_handle(RTMP_ADAPTER *pAd)
 			if ((pFceInfo->info_type != 0) || (pFceInfo->pkt_80211 != 1))
 			{
 #ifdef DBG
-				DBGPRINT(RT_DEBUG_OFF, ("==>%s(): GetFrameFromOtherPorts!\n", __FUNCTION__));
+				DBGPRINT(RT_DEBUG_INFO, ("==>%s(): GetFrameFromOtherPorts!\n", __FUNCTION__));
 				hex_dump("hw_rx_info", &rxblk.hw_rx_info[0], sizeof(rxblk.hw_rx_info));
-				DBGPRINT(RT_DEBUG_TRACE, ("Dump the RxD, RxFCEInfo and RxInfo:\n"));
+				DBGPRINT(RT_DEBUG_INFO, ("Dump the RxD, RxFCEInfo and RxInfo:\n"));
 				hex_dump("RxD", (UCHAR *)pRxD, sizeof(RXD_STRUC));
 #ifdef RTMP_MAC_PCI
 				dump_rxd(pAd, pRxD);
@@ -5177,7 +5177,7 @@ BOOLEAN rtmp_rx_done_handle(RTMP_ADAPTER *pAd)
 				dumpRxFCEInfo(pAd, pFceInfo);
 				dump_rxinfo(pAd, pRxInfo);
 				hex_dump("RxFrame", (UCHAR *)pData, (pFceInfo->pkt_len));
-				DBGPRINT(RT_DEBUG_OFF, ("<==\n"));
+				DBGPRINT(RT_DEBUG_INFO, ("<==\n"));
 #endif
 				RELEASE_NDIS_PACKET(pAd, pRxPacket, NDIS_STATUS_SUCCESS);
 				continue;

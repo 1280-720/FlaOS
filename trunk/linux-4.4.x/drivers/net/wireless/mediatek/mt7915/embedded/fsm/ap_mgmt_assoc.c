@@ -285,7 +285,7 @@ static USHORT update_associated_mac_entry(
 			ie_list->cmm_ies.operating_mode.rx_nss_type == 0) {
 			pEntry->operating_mode = ie_list->cmm_ies.operating_mode;
 			pEntry->force_op_mode = TRUE;
-			MTWF_LOG(DBG_CAT_AP, DBG_SUBCAT_ALL, DBG_LVL_TRACE,
+			MTWF_LOG(DBG_CAT_AP, DBG_SUBCAT_ALL, DBG_LVL_INFO,
 					 ("%s(): Peer's OperatingMode=>RxNssType: %d, RxNss: %d, ChBW: %d\n",
 					  __func__, pEntry->operating_mode.rx_nss_type,
 					  pEntry->operating_mode.rx_nss,

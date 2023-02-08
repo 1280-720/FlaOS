@@ -44,30 +44,30 @@
 #ifdef DBG
 VOID dump_txd(RTMP_ADAPTER *pAd, TXD_STRUC *pTxD)
 {
-	DBGPRINT(RT_DEBUG_OFF, ("TxD:\n"));
+	DBGPRINT(RT_DEBUG_INFO, ("TxD:\n"));
 	
-	DBGPRINT(RT_DEBUG_OFF, ("\tSDPtr0=0x%x\n", pTxD->SDPtr0));
-	DBGPRINT(RT_DEBUG_OFF, ("\tSDLen0=0x%x\n", pTxD->SDLen0));
-	DBGPRINT(RT_DEBUG_OFF, ("\tLastSec0=0x%x\n", pTxD->LastSec0));
-	DBGPRINT(RT_DEBUG_OFF, ("\tSDPtr1=0x%x\n", pTxD->SDPtr1));
-	DBGPRINT(RT_DEBUG_OFF, ("\tSDLen1=0x%x\n", pTxD->SDLen1));
-	DBGPRINT(RT_DEBUG_OFF, ("\tLastSec1=0x%x\n", pTxD->LastSec1));
-	DBGPRINT(RT_DEBUG_OFF, ("\tDMADONE=0x%x\n", pTxD->DMADONE));
-	DBGPRINT(RT_DEBUG_OFF, ("\tBurst=0x%x\n", pTxD->Burst));
+	DBGPRINT(RT_DEBUG_INFO, ("\tSDPtr0=0x%x\n", pTxD->SDPtr0));
+	DBGPRINT(RT_DEBUG_INFO, ("\tSDLen0=0x%x\n", pTxD->SDLen0));
+	DBGPRINT(RT_DEBUG_INFO, ("\tLastSec0=0x%x\n", pTxD->LastSec0));
+	DBGPRINT(RT_DEBUG_INFO, ("\tSDPtr1=0x%x\n", pTxD->SDPtr1));
+	DBGPRINT(RT_DEBUG_INFO, ("\tSDLen1=0x%x\n", pTxD->SDLen1));
+	DBGPRINT(RT_DEBUG_INFO, ("\tLastSec1=0x%x\n", pTxD->LastSec1));
+	DBGPRINT(RT_DEBUG_INFO, ("\tDMADONE=0x%x\n", pTxD->DMADONE));
+	DBGPRINT(RT_DEBUG_INFO, ("\tBurst=0x%x\n", pTxD->Burst));
 }
 
 
 VOID dump_rxd(RTMP_ADAPTER *pAd, RXD_STRUC *pRxD)
 {
-	DBGPRINT(RT_DEBUG_OFF, ("RxD:\n"));
+	DBGPRINT(RT_DEBUG_INFO, ("RxD:\n"));
 	
-	DBGPRINT(RT_DEBUG_OFF, ("\tSDPtr0=0x%x\n", pRxD->SDP0));
-	DBGPRINT(RT_DEBUG_OFF, ("\tSDLen0=0x%x\n", pRxD->SDL0));
-	DBGPRINT(RT_DEBUG_OFF, ("\tLastSec0=0x%x\n", pRxD->LS0));
-	DBGPRINT(RT_DEBUG_OFF, ("\tSDPtr1=0x%x\n", pRxD->SDP1));
-	DBGPRINT(RT_DEBUG_OFF, ("\tSDLen1=0x%x\n", pRxD->SDL1));
-	DBGPRINT(RT_DEBUG_OFF, ("\tLastSec1=0x%x\n", pRxD->LS1));
-	DBGPRINT(RT_DEBUG_OFF, ("\tDDONE=0x%x\n", pRxD->DDONE));
+	DBGPRINT(RT_DEBUG_INFO, ("\tSDPtr0=0x%x\n", pRxD->SDP0));
+	DBGPRINT(RT_DEBUG_INFO, ("\tSDLen0=0x%x\n", pRxD->SDL0));
+	DBGPRINT(RT_DEBUG_INFO, ("\tLastSec0=0x%x\n", pRxD->LS0));
+	DBGPRINT(RT_DEBUG_INFO, ("\tSDPtr1=0x%x\n", pRxD->SDP1));
+	DBGPRINT(RT_DEBUG_INFO, ("\tSDLen1=0x%x\n", pRxD->SDL1));
+	DBGPRINT(RT_DEBUG_INFO, ("\tLastSec1=0x%x\n", pRxD->LS1));
+	DBGPRINT(RT_DEBUG_INFO, ("\tDDONE=0x%x\n", pRxD->DDONE));
 }
 
 

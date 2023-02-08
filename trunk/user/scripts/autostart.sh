@@ -2,7 +2,7 @@
 #nvram set ntp_ready=0
 
 mkdir -p /tmp/dnsmasq.dom
-logger -t "为防止dnsmasq启动失败，创建/tmp/dnsmasq.dom/"
+logger -t "To prevent dnsmasq from failing to start, create /tmp/dnsmasq.dom/"
 
 smartdns_conf="/etc/storage/smartdns_custom.conf"
 dnsmasq_Conf="/etc/storage/dnsmasq/dnsmasq.conf"
@@ -17,21 +17,21 @@ if [ $(nvram get sdns_enable) = 1 ] ; then
        sed -i '/port=0/d' "$dnsmasq_Conf"
        rm  -f "$smartdns_Ini"
    fi
-logger -t "自动启动" "正在启动SmartDNS"
+logger -t "Autostart" "Starting SmartDNS"
 /usr/bin/smartdns.sh start
 fi
 
 
-logger -t "自动启动" "正在检查路由是否已连接互联网！"
+logger -t "Autostart" "Checking if router is connected to Internet"
 count=0
 while :
 do
-	ping -c 1 -W 1 -q 223.5.5.5 1>/dev/null 2>&1
+	ping -c 1 -W 1 -q 8.8.8.8 1>/dev/null 2>&1
 	if [ "$?" == "0" ]; then
 		break
 	fi
 	sleep 5
-	ping -c 1 -W 1 -q baidu.com 1>/dev/null 2>&1
+	ping -c 1 -W 1 -q google.com 1>/dev/null 2>&1
 	if [ "$?" == "0" ]; then
 		break
 	fi
@@ -47,51 +47,51 @@ sleep 20
 fi
 
 if [ $(nvram get adbyby_enable) = 1 ] ; then
-logger -t "自动启动" "正在启动adbyby plus+"
+logger -t "Autostart" "Starting adbyby plus+"
 /usr/bin/adbyby.sh start
 fi
 
 if [ $(nvram get aliddns_enable) = 1 ] ; then
-logger -t "自动启动" "正在启动阿里ddns"
+logger -t "Autostart" "Starting aliddns"
 /usr/bin/aliddns.sh start
 fi
 
 if [ $(nvram get ss_enable) = 1 ] ; then
-logger -t "自动启动" "正在启动科学上网"
+logger -t "Autostart" "Starting Shadowshocks"
 /usr/bin/shadowsocks.sh start
 fi
 
 if [ $(nvram get adg_enable) = 1 ] ; then
-logger -t "自动启动" "正在启动adguardhome"
+logger -t "Autostart" "Starting AdGuard Home"
 /usr/bin/adguardhome.sh start
 fi
 
 if [ $(nvram get zerotier_enable) = 1 ] ; then
-logger -t "自动启动" "正在启动zerotier"
+logger -t "Autostart" "Starting zerotier"
 /usr/bin/zerotier.sh start
 fi
 
 if [ $(nvram get ddnsto_enable) = 1 ] ; then
-logger -t "自动启动" "正在启动ddnsto"
+logger -t "Autostart" "Starting ddnsto"
 /usr/bin/ddnsto.sh start
 fi
 
 if [ $(nvram get aliyundrive_enable) = 1 ] ; then
-logger -t "自动启动" "正在启动阿里云盘"
+logger -t "Autostart" "Starting Allyundrive"
 /usr/bin/aliyundrive-webdav.sh start
 fi
 
 if [ $(nvram get wireguard_enable) = 1 ] ; then
-logger -t "自动启动" "正在启动wireguard"
+logger -t "Autostart" "Starting Wireguard"
 /usr/bin/wireguard.sh start
 fi
 
 if [ $(nvram get sqm_enable) = 1 ] ; then
-logger -t "自动启动" "正在启动SQM QOS"
+logger -t "Autostart" "Starting SQM QOS"
 /usr/lib/sqm/run.sh
 fi
 
 if [ $(nvram get frpc_enable) = 1 ] ; then
-logger -t "自动启动" "正在启动frp client"
+logger -t "Autostart" "Starting frp client"
 /usr/bin/frp.sh start
 fi

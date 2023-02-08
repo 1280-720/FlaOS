@@ -384,7 +384,7 @@ function networkmap_update(s){
 <table id="Clients_table" width="100%" align="center" cellpadding="1" class="table">
     <thead>
         <tr>
-            <th colspan="5" style="text-align: center;"><#ConnectedClient#></th>
+            <!--th colspan="5" style="text-align: center;"><#ConnectedClient#></th-->
         </tr>
         <tr>
             <th width="8%"><a href="javascript:sort(0)"><#Type#></a></th>

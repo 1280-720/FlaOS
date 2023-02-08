@@ -51,7 +51,7 @@ rulesenable="$(nvram get pppoemwan_rules_x )"
 if [ "$rulesenable" -ne 0 ]; then
 num="$(nvram get pppoemwan_staticnum_x)"
 if [ "$num" -ne 0 ]; then
-logger -t "mwan" "开始设置分流"
+logger -t "mwan" "Start loadbalancing"
 for i in $(seq 1 $num)
 do
         let j=$i-1

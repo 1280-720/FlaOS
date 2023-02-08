@@ -19,38 +19,116 @@ sed -i 's/CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT=y/CONFIG_FIRMWARE_INCLUDE_SCUTCLIEN
 sed -i 's/CONFIG_FIRMWARE_INCLUDE_SRELAY=y/CONFIG_FIRMWARE_INCLUDE_SRELAY=n/g' .config
 sed -i 's/CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y/CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=n/g' .config
 
-##以下为插件增减选项,y为集成,n为不集成,请根据自己路由的FLASH大小选择,切勿超大小,不然固件刷入后会无法启动
-##此插件选项只在本地编译的时候才会生效
-##科学上网##
-echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y" >> .config #科学上网插件，选择n后全部有关插件都不集成
-echo "CONFIG_FIRMWARE_INCLUDE_XRAY=y" >> .config #集成xray执行文件  ~4.5M
-echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=n" >> .config #集成v2ray执行文件
-echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=y" >> .config #集成trojan执行文件  ~1.2M
-echo "CONFIG_FIRMWARE_INCLUDE_SSOBFS=y" >> .config #simple-obfs混淆插件
-##科学上网##
+###########################################Removal step#######################################################
+##This is used to reduce firmware size for minimalism
+sed -i '/CONFIG_FIRMWARE_INCLUDE_EAP_PEAP/d' .config #Disable WPA2-Enterprise
+sed -i '/CONFIG_FIRMWARE_INCLUDE_HTTPS/d' .config #Disable HTTPS login
+sed -i '/CONFIG_FIRMWARE_INCLUDE_DROPBEAR/d' .config #Disable Dropbear SSH (also SCP/RCP)
+sed -i '/CONFIG_FIRMWARE_INCLUDE_DROPBEAR_FAST_CODE/d' .config #Disable Dropbear SSH
+sed -i '/CONFIG_FIRMWARE_INCLUDE_OPENSSH/d' .config #Disable OpenSSH
+sed -i '/CONFIG_FIRMWARE_INCLUDE_SFTP/d' .config #Disable SFTP (need OpenSSH to work)
+sed -i '/CONFIG_FIRMWARE_INCLUDE_OPENVPN/d' .config #Disable OpenVPN
+sed -i '/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EC/d' .config #Elliptic Curves 
+sed -i '/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE/d' .config #"openssl" executable for generate certificates
+sed -i '/CONFIG_FIRMWARE_INCLUDE_SSWAN/d' .config #StrongSwan is IPSec MultiClient
+sed -i '/CONFIG_FIRMWARE_INCLUDE_TRANSMISSION/d' .config #Disable Torrent Client
+sed -i '/CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_CONTROL/d' .config
+sed -i '/CONFIG_FIRMWARE_INCLUDE_ARIA/d' .config #Disable Aria Web
+sed -i '/CONFIG_FIRMWARE_INCLUDE_ARIA_WEB_CONTROL/d' .config
+##Proprietary tool
+sed -i '/CONFIG_FIRMWARE_INCLUDE_CURL/d' .config
+sed -i '/CONFIG_FIRMWARE_INCLUDE_NANO/d' .config #I started to liek the VI command more
+sed -i '/CONFIG_FIRMWARE_INCLUDE_HTOP/d' .config #Delete CLI Task manager
+sed -i '/CONFIG_FIRMWARE_INCLUDE_IPERF3/d' .config #This is a speed testing tool
+sed -i '/CONFIG_FIRMWARE_INCLUDE_WIREGUARD/d' .config #Delete Wireguard
+##Chinese stuff
+sed -i '/CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT/d' .config #Delete SCUTCLIENT
+sed -i '/CONFIG_FIRMWARE_INCLUDE_DOGCOM/d' .config #Delete DOGCOM battery
+sed -i '/CONFIG_FIRMWARE_INCLUDE_NJIT_CLIENT/d' .config #Delete what i know nothing about it
+sed -i '/CONFIG_FIRMWARE_INCLUDE_VLMCSD/d' .config #Delete virtual KMS server
+sed -i '/CONFIG_FIRMWARE_INCLUDE_MENTOHUST/d' .config #Delete MENTOHUST
+sed -i '/CONFIG_FIRMWARE_INCLUDE_MINIEAP/d' .config
+sed -i '/CONFIG_FIRMWARE_INCLUDE_SRELAY/d' .config #Delete Proxy client
+sed -i '/CONFIG_FIRMWARE_INCLUDE_SOCAT/d' .config
+sed -i '/CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS/d' .config #Delete SS plus+
+sed -i '/CONFIG_FIRMWARE_INCLUDE_SSSERVER/d' .config
+sed -i '/CONFIG_FIRMWARE_INCLUDE_DNSFORWARDER/d' .config #Delete DNSFORWARDER
+sed -i '/CONFIG_FIRMWARE_INCLUDE_ADBYBY/d' .config #Delete adbyby plus+
+sed -i '/CONFIG_FIRMWARE_INCLUDE_FRPC/d' .config
+sed -i '/CONFIG_FIRMWARE_INCLUDE_FRPS/d' .config
+sed -i '/CONFIG_FIRMWARE_INCLUDE_TUNSAFE/d' .config
+sed -i '/CONFIG_FIRMWARE_INCLUDE_ALIDDNS/d' .config #Delete AliDDNS
+sed -i '/CONFIG_FIRMWARE_INCLUDE_SMARTDNS/d' .config #Delete Smart DDNS
+sed -i '/CONFIG_FIRMWARE_INCLUDE_TROJAN/d' .config #Delete Trojan- Chinese GFW bypassing tool
 
-##广告管理##
-echo "CONFIG_FIRMWARE_INCLUDE_ADBYBY=y" >> .config #adbyby plus+
+###########################################Adding step#######################################################
+##The following are the plug-in increase and decrease options, y means integrated, n means not integrated, 
+##Please choose according to the size of the FLASH of your route, don't oversize, otherwise the firmware will not start after flashing in
+##This plugin option will only take effect when compiling locally
+##Proprietary things
+echo "CONFIG_FIRMWARE_INCLUDE_EAP_PEAP=n" >> .config #openssl 1.2M, wpa_supplicant 0.04M
+echo "CONFIG_FIRMWARE_INCLUDE_HTTPS=n" >> .config #openssl 1.2M
+echo "CONFIG_FIRMWARE_INCLUDE_SFTP=n" >> .config #openssl 1.2M, sftp-server 0.06M
+echo "CONFIG_FIRMWARE_INCLUDE_DROPBEAR=y" >> .config #0.3M
+echo "CONFIG_FIRMWARE_INCLUDE_DROPBEAR_FAST_CODE=n" >> .config #0.06M
+echo "CONFIG_FIRMWARE_INCLUDE_OPENSSH=n" >> .config #openssl 1.2M, openssh 1.0M
+echo "CONFIG_FIRMWARE_INCLUDE_OPENVPN=n" >> .config #openssl 1.2M, openvpn ~0.4M
+echo "CONFIG_FIRMWARE_INCLUDE_SSWAN=n" >> .config #XFRM modules 0.2M, strongswan ~0.7M
+echo "CONFIG_FIRMWARE_INCLUDE_OPENSSL_EC=n" >> .config #0.1M
+echo "CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n" >> .config #0.4M
+echo "CONFIG_FIRMWARE_INCLUDE_TRANSMISSION=n" >> .config #openssl 1.2M, transmission 1.5M
+echo "CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_CONTROL=n" >> .config #advanced WebUI 0.8M
+echo "CONFIG_FIRMWARE_INCLUDE_ARIA=n" >> .config #openssl 1.2M, aria2 3.5M
+echo "CONFIG_FIRMWARE_INCLUDE_ARIA_WEB_CONTROL=n" >> .config #0.7M
 
-##DNS服务##
-echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNS=n" >> .config #smartdns
-echo "CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME=n" >> .config #adg DNS去AD
+##Proprietary tool
+echo "CONFIG_FIRMWARE_INCLUDE_CURL=n" .config
+echo "CONFIG_FIRMWARE_INCLUDE_HTOP=n" >> .config
+echo "CONFIG_FIRMWARE_INCLUDE_NANO=n" >> .config 
+echo "CONFIG_FIRMWARE_INCLUDE_IPERF3=n" >> .config
+echo "CONFIG_FIRMWARE_INCLUDE_SOCAT=n" .config #Bidirectional NetCat
+
+##Chinese Services
+echo "CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT=n" >> .config #SCUTCLIENT
+echo "CONFIG_FIRMWARE_INCLUDE_DOGCOM=n" >> .config #DOGCOM battery
+echo "CONFIG_FIRMWARE_INCLUDE_MENTOHUST=n" >> .config #MENTOHUST 1.2M
+echo "CONFIG_FIRMWARE_INCLUDE_MINIEAP=n" >> .config #EAP-MD5-Challenge Client- a MENTOHUST related
+echo "CONFIG_FIRMWARE_INCLUDE_NJIT_CLIENT=n" >> .config #Nanjing Institute of Technology Client 0.4M
+echo "CONFIG_FIRMWARE_INCLUDE_VLMCSD=n" >> .config #Virtual KMS server 2.1M
 
 
-##内网穿透服务##
-echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=y" >> .config #zerotier ~1.3M
-echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=y" >> .config #aliddns
-echo "CONFIG_FIRMWARE_INCLUDE_DDNSTO=y" >> .config #ddnsto  ~0.5M
-##内网穿透服务##
-echo "CONFIG_FIRMWARE_INCLUDE_ALDRIVER=n" >> .config  #ALDRIVER  ~3m
+##Science Online##
+echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=n" >> .config #Scientific online plug-in, after selecting n, all related plug-ins are integrated
+echo "CONFIG_FIRMWARE_INCLUDE_XRAY=n" >> .config #Integrate xray execution file  4.5M
+echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=n" >> .config #Integrate v2ray execution file
+echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=n" >> .config #Integrate trojan execution file  1.2M
+echo "CONFIG_FIRMWARE_INCLUDE_SSOBFS=n" >> .config #simple-obfs obfuscation plugin
+echo "CONFIG_FIRMWARE_INCLUDE_SRELAY=n" >> .config #Socks 4/5 protocol proxy server 0.8M
+
+##Advertisement Management##
+echo "CONFIG_FIRMWARE_INCLUDE_ADBYBY=n" >> .config #adbyby plus+
+
+##DNS Service##
+echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNS=n" >> .config #smartdns 0.5M
+echo "CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME=n" >> .config #adguard home adblock
+echo "CONFIG_FIRMWARE_INCLUDE_DNSFORWARDER=n" >> .config #DNSFORWARDER
+
+##Intranet penetration service##
+echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=y" >> .config #zerotier 1.3M
+echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=n" >> .config #aliddns
+echo "CONFIG_FIRMWARE_INCLUDE_DDNSTO=n" >> .config #ddnsto  0.5M
+
+##Intranet quality enhance service##
+echo "CONFIG_FIRMWARE_INCLUDE_ALDRIVER=n" >> .config  #ALDRIVER  3M
 echo "CONFIG_FIRMWARE_INCLUDE_MENTOHUST=n" >> .config #mentohust
-echo "CONFIG_FIRMWARE_INCLUDE_SQM=y" >> .config #SQM
-echo "CONFIG_FIRMWARE_INCLUDE_WIREGUARD=y" >>.config #wireguard 10k
+echo "CONFIG_FIRMWARE_INCLUDE_SQM=n" >> .config #Remember that SQM will affects the HWNAT Offloading Function!
+echo "CONFIG_FIRMWARE_INCLUDE_WIREGUARD=n" >>.config #wireguard 10K
 echo "CONFIG_FIRMWARE_INCLUDE_FRPC=n" >> .config #frpc
 echo "CONFIG_FIRMWARE_INCLUDE_FRPS=n" >> .config #frps
-#CPU超频
-echo "CONFIG_FIRMWARE_INCLUDE_OC=n" >> .config #CPU超频开关
-echo 'CONFIG_FIRMWARE_MT7621_OC="0x312"' >> .config #此处填写对应频率的十六进制：1000Mhz=0x312 1100Mhz=0x362 1120Mhz=0x372 1200Mhz=0x3B2
+
+#CPU overclocking
+echo "CONFIG_FIRMWARE_INCLUDE_OC=n" >> .config #CPU overclocking switch
+echo 'CONFIG_FIRMWARE_MT7621_OC="0x312"' >> .config #Fill in the hexadecimal of the corresponding freq：1000Mhz=0x312 1100Mhz=0x362 1120Mhz=0x372 1200Mhz=0x3B2
 
 fi
 
