@@ -39,8 +39,8 @@ static DEFINE_MUTEX(esw_access_mutex);
 static DECLARE_BITMAP(g_vlan_pool, 4096);
 
 
-static u32 g_wan_bridge_mode                     = SWAPI_WAN_BRIDGE_DISABLE;
-static u32 g_wan_bwan_isolation                  = SWAPI_WAN_BWAN_ISOLATION_NONE;
+static u32 g_wan_bridge_mode                     = SWAPI_WAN_BRIDGE_LAN1;
+static u32 g_wan_bwan_isolation                  = SWAPI_WAN_BWAN_ISOLATION_BETWEEN;
 
 static u32 g_led_phy_mode                        = SWAPI_LED_LINK_ACT;
 
@@ -309,7 +309,7 @@ static void esw_show_bridge_partitions(u32 wan_bridge_mode)
 		wanr = "";
 		break;
 	default:
-		strcpy(lans, "LLLL");
+		strcpy(lans, "WLLL");
 		break;
 	}
 
