@@ -6,7 +6,7 @@
 #include <sys/socket.h>
 #include <linux/if.h>
 
-#include ra_ioctl.h
+#include "ra_ioctl.h"
 
 #define RT_QDMA_HELP		1
 
