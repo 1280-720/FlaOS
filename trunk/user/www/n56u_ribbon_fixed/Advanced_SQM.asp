@@ -157,7 +157,7 @@ function getHash(){
                                     <div class="row-fluid">
                                         <div id="tabMenu" class="submenuBlock"></div>
                                         <div class="alert alert-info" style="margin: 10px;">
- 				因7621性能所限,大于500M宽带开启硬件QOS，并不要手动关闭硬件加速！
+				因7621性能所限,大于500M宽带开启硬件QOS，并不要手动关闭硬件加速！
                                         </div>
                                    </div>
 
