@@ -157,11 +157,7 @@ function getHash(){
                                     <div class="row-fluid">
                                         <div id="tabMenu" class="submenuBlock"></div>
                                         <div class="alert alert-info" style="margin: 10px;">
-                          Lưu ý: SQM sẽ tự động chỉnh sửa các thông số HWNAT tương ứng，vui lòng không chỉnh sửa mục HWNAT trong cài đặt WAN để tránh xung đột</br>
-				Do hiệu suất của CPU MT7621, thận trọng khi sử dụng SQM với băng thông lớn hơn 500mb/s!</br>
-            Với SQM, bạn có thể: Giới hạn lưu lượng truy cập trên một băng tần cụ thể, chẳng hạn như tùy chỉnh wifi khách 5GHz. Các wifi khác như 5GHz chính sẽ không bị ảnh hưởng.</br>
-                                       Tên của wifi khách tùy thuộc vào kiểu máy, Khách 5GHz: ra1 (hoặc rai1), Khách 2.4GHz: rax1 (hoặc ra1).</br>
-				       TLDR: Tính năng dành cho ae sử dụng internet băng thông ở mức trung bình khá, nhằm khắc phục tình trạng sụt tốc/nhảy ping khi có thằng xem sex.
+ 				因7621性能所限,大于500M宽带开启硬件QOS，并不要手动关闭硬件加速！
                                         </div>
                                    </div>
 
@@ -191,27 +187,16 @@ function getHash(){
                                                 </td>
                                             </tr>
                                               <tr>
-                                            <th>Kiểm soát lưu lượng truy cập</th>
+                                            <th>硬件QOS</th>
                                             <td>
                                                 <select name="sqm_flag" class="input">
-                                                    <option value="1" <% nvram_match_x("", "sqm_flag", "1", "selected"); %>>Thiết bị có dây</option>
-                                                    <option value="2" <% nvram_match_x("", "sqm_flag", "2", "selected"); %>>Thiết bị không dây</option>
-                                                    <option value="3" <% nvram_match_x("", "sqm_flag", "3", "selected"); %>>Cả hai</option>
-                                                    <option value="4" <% nvram_match_x("", "sqm_flag", "4", "selected"); %>>Tuỳ chỉnh</option>
+                                                    <option value="1" <% nvram_match_x("", "sqm_flag", "1", "selected"); %>>启用</option>
+                                                    <option value="2" <% nvram_match_x("", "sqm_flag", "2", "selected"); %>>取消</option>
                                                 </select>
                                             </td>
                                         </tr>
                                             <tr>
-                                                <th>Tuỳ chỉnh (nếu có)</th>
-                                                <td>
-                                                    <input type="text" maxlength="10" class="input" size="10" name="sqm_active" value="<% nvram_get_x("","sqm_active"); %>"/>
-                                                </td>
-                                                <td>
-                                                    &nbsp;<span style="color:#888;">Ví dụ: ra0</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>Thuật toán kiểm soát</th>
+                                                <th>队列规则</th>
                                                 <td>
                                                     <select name="sqm_qdisc" class="input">
                                                         <option value="fq_codel" <% nvram_match_x("","sqm_qdisc", "fq_codel","selected"); %>>fq_codel (*)</option>
