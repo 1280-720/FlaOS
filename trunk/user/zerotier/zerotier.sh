@@ -21,7 +21,7 @@ start_instance() {
 		args="$args -p$port"
 	fi
 	if [ -z "$secret" ]; then
-		logger -t "zerotier" "设备密匙为空,正在生成密匙,请稍后..."
+		logger -t "zerotier" "Device key is empty, generating key, please wait..."
 		sf="$config_path/identity.secret"
 		pf="$config_path/identity.public"
 		$PROGIDT generate "$sf" "$pf"  >/dev/null
@@ -32,7 +32,7 @@ start_instance() {
 		nvram commit
 	fi
 	if [ -n "$secret" ]; then
-		logger -t "zerotier" "找到密匙,正在写入文件,请稍后..."
+		logger -t "zerotier" "Key found, writing to file, please wait..."
 		echo "$secret" >$config_path/identity.secret
 		$PROGIDT getpublic $config_path/identity.secret >$config_path/identity.public
 		#rm -f $config_path/identity.public
@@ -52,10 +52,10 @@ start_instance() {
 
 	if [ -n "$enablemoonserv" ]; then
 		if [ "$enablemoonserv" -eq "1" ]; then
-			logger -t "zerotier" "creat moon start"
+			logger -t "zerotier" "Create moon start"
 			creat_moon
 		else
-			logger -t "zerotier" "remove moon start"
+			logger -t "zerotier" "Remove moon start"
 			remove_moon
 		fi
 	fi
@@ -118,7 +118,7 @@ zero_route(){
 }
 
 start_zero() {
-	logger -t "zerotier" "正在启动zerotier"
+	logger -t "zerotier" "Starting service..."
 	kill_z
 	start_instance 'zerotier'
 
@@ -126,7 +126,7 @@ start_zero() {
 kill_z() {
 	zerotier_process=$(pidof zerotier-one)
 	if [ -n "$zerotier_process" ]; then
-		logger -t "ZEROTIER" "关闭进程..."
+		logger -t "zerotier" "Stopping service..."
 		killall zerotier-one >/dev/null 2>&1
 		kill -9 "$zerotier_process" >/dev/null 2>&1
 	fi
@@ -138,20 +138,20 @@ stop_zero() {
 	rm -rf $config_path
 }
 
-#创建moon节点
+#Create a moon node
 creat_moon(){
 	moonip="$(nvram get zerotiermoon_ip)"
 	logger -t "zerotier" "moonip $moonip"
-	#检查是否合法ip
+	#Check for legal ip
 	regex="\b(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[1-9])\b"
 	ckStep2=`echo $moonip | egrep $regex | wc -l`
 
-	logger -t "zerotier" "搭建ZeroTier的Moon中转服务器，生成moon配置文件"
+	logger -t "zerotier" "Building ZeroTier Moon transit server and generating moon configuration file..."
 	if [ -z "$moonip" ]; then
-		#自动获取wanip
+		#Get wan ip automatically
 		ip_addr=`ifconfig -a ppp0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'`
 	#elif [ $ckStep2 -eq 0 ]; then
-		#不是ip
+		#No ip
 	#	ip_addr = `curl $moonip`
 	else
 		ip_addr=$moonip
@@ -161,24 +161,24 @@ creat_moon(){
 
 		$PROGIDT initmoon $config_path/identity.public > $config_path/moon.json
 		if `sed -i "s/\[\]/\[ \"$ip_addr\/9993\" \]/" $config_path/moon.json >/dev/null 2>/dev/null`; then
-			logger -t "zerotier" "生成moon配置文件成功"
+			logger -t "zerotier" "Generate moon configuration file successfully!"
 		else
-			logger -t "zerotier" "生成moon配置文件失败"
+			logger -t "zerotier" "Failed to generate moon configuration file!"
 		fi
 
-		logger -t "zerotier" "生成签名文件"
+		logger -t "zerotier" "Generating signature file..."
 		cd $config_path
 		pwd
 		$PROGIDT genmoon $config_path/moon.json
 		[ $? -ne 0 ] && return 1
-		logger -t "zerotier" "创建moons.d文件夹，并把签名文件移动到文件夹内"
+		logger -t "zerotier" "Creating a moons.d folder and moving the signature file into the folder..."
 		if [ ! -d "$config_path/moons.d" ]; then
 			mkdir -p $config_path/moons.d
 		fi
 		
 		#服务器加入moon server
 		mv $config_path/*.moon $config_path/moons.d/ >/dev/null 2>&1
-		logger -t "zerotier" "moon节点创建完成"
+		logger -t "zerotier" "ZeroTier Moon has been created!"
 
 		zmoonid=`cat moon.json | awk -F "[id]" '/"id"/{print$0}'` >/dev/null 2>&1
 		zmoonid=`echo $zmoonid | awk -F "[:]" '/"id"/{print$2}'` >/dev/null 2>&1
@@ -187,7 +187,7 @@ creat_moon(){
 		nvram set zerotiermoon_id="$zmoonid"
 		nvram commit
 	else
-		logger -t "zerotier" "identity.public不存在"
+		logger -t "zerotier" "identity.public does not exist!"
 	fi
 }
 

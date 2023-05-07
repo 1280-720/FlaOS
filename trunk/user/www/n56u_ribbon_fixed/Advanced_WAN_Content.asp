@@ -1125,43 +1125,43 @@ function simplyMAC(fullMAC){
                                             </td>
                                         </tr>
                                         <tr id="pppoemwan4">
-					<th width="30%" style="border-top: 0 none;">启用多拨(兼容HWNAT)</th>
-												  						     <td style="border-top: 0 none;">
-													<div class="main_itoggle">
-													<div id="pppoemwan_enable_on_of">
-														<input type="checkbox" id="pppoemwan_enable_fake" <% nvram_match_x("", "pppoemwan_enable", "1", "value=1 checked"); %><% nvram_match_x("", "pppoemwan_enable", "0", "value=0"); %>  />
-													</div>
-												</div>
-												<div style="position: absolute; margin-left: -10000px;">
-													<input type="radio" value="1" name="pppoemwan_enable" id="pppoemwan_enable_1" class="input"  onclick="change_pppoemwan_enabled()" value="1" <% nvram_match_x("", "pppoemwan_enable", "1", "checked"); %> /><#checkbox_Yes#>
-													<input type="radio" value="0" name="pppoemwan_enable" id="pppoemwan_enable_0" class="input"  onclick="change_pppoemwan_enabled()" value="0" <% nvram_match_x("", "pppoemwan_enable", "0", "checked"); %> /><#checkbox_No#>
-												</div>
-											</td>
+					<th width="30%" style="border-top: 0 none;">Bongo Cat</th>
+									<td style="border-top: 0 none;">
+										<div class="main_itoggle">
+											<div id="pppoemwan_enable_on_of">
+												<input type="checkbox" id="pppoemwan_enable_fake" <% nvram_match_x("", "pppoemwan_enable", "1", "value=1 checked"); %><% nvram_match_x("", "pppoemwan_enable", "0", "value=0"); %>  />
+											</div>
+										</div>
+										<div style="position: absolute; margin-left: -10000px;">
+											<input type="radio" value="1" name="pppoemwan_enable" id="pppoemwan_enable_1" class="input"  onclick="change_pppoemwan_enabled()" value="1" <% nvram_match_x("", "pppoemwan_enable", "1", "checked"); %> /><#checkbox_Yes#>
+											<input type="radio" value="0" name="pppoemwan_enable" id="pppoemwan_enable_0" class="input"  onclick="change_pppoemwan_enabled()" value="0" <% nvram_match_x("", "pppoemwan_enable", "0", "checked"); %> /><#checkbox_No#>
+										</div>
+									</td>
 
 					</tr>
                                         <tr id="pppoemwan3">
-					<th width="30%" style="border-top: 0 none;">并发多拨</th>
-												  						     <td style="border-top: 0 none;">
-													<div class="main_itoggle">
-													<div id="pppoesync_enable_on_of">
-														<input type="checkbox" id="pppoesync_enable_fake" <% nvram_match_x("", "pppoesync_enable", "1", "value=1 checked"); %><% nvram_match_x("", "pppoesync_enable", "0", "value=0"); %>  />
-													</div>
-												</div>
-												<div style="position: absolute; margin-left: -10000px;">
-													<input type="radio" value="1" name="pppoesync_enable" id="pppoesync_enable_1" class="input" value="1" <% nvram_match_x("", "pppoesync_enable", "1", "checked"); %> /><#checkbox_Yes#>
-													<input type="radio" value="0" name="pppoesync_enable" id="pppoesync_enable_0" class="input" value="0" <% nvram_match_x("", "pppoesync_enable", "0", "checked"); %> /><#checkbox_No#>
-												</div>
-											</td>
+					<th>MultiWAN</th>
+									<td style="border-top: 0 none;">
+										<div class="main_itoggle">
+											<div id="pppoesync_enable_on_of">
+												<input type="checkbox" id="pppoesync_enable_fake" <% nvram_match_x("", "pppoesync_enable", "1", "value=1 checked"); %><% nvram_match_x("", "pppoesync_enable", "0", "value=0"); %>  />
+											</div>
+										</div>
+										<div style="position: absolute; margin-left: -10000px;">
+											<input type="radio" value="1" name="pppoesync_enable" id="pppoesync_enable_1" class="input" value="1" <% nvram_match_x("", "pppoesync_enable", "1", "checked"); %> /><#checkbox_Yes#>
+											<input type="radio" value="0" name="pppoesync_enable" id="pppoesync_enable_0" class="input" value="0" <% nvram_match_x("", "pppoesync_enable", "0", "checked"); %> /><#checkbox_No#>
+										</div>
+									</td>
 
 					</tr>
 					<tr id="pppoemwan2" >
-										<th>多拨次数</th>
+					<th>PPPoE</th>
 				<td>
 					<input type="text" class="input" name="pppoe_num" id="pppoe_num" style="width: 100px" value="<% nvram_get_x("","pppoe_num"); %>" />
 				</td>   
 					</tr>
 					<tr id="pppoemwan1" >
-					 <th width="30%" style="border-top: 0 none;">内网IP分流控制</th>
+					 <th>TCP/IP flow control</th>
                                              <td style="border-top: 0 none;">
                                                 <div class="main_itoggle">
                                                     <div id="pppoemwan_rules_x_on_of">
@@ -1176,31 +1176,31 @@ function simplyMAC(fullMAC){
                                             </td>
                                        </tr>
                                        <tr id="row_static_caption" style="display:none">
-                                            <th width="25%">
+                                            <th width="30%">
                                                 <#LANHostConfig_ManualMac_itemname#> <a href="javascript:sortbyMAC();" style="outline:0;"><i class="icon-circle-arrow-down"></i></a>
                                             </th>
-                                            <th width="25%">
+                                            <th width="20%">
                                                 <#LANHostConfig_ManualIP_itemname#> <a href="javascript:sortbyIP();" style="outline:0;"><i class="icon-circle-arrow-down"></i></a>
                                             </th>
                                             <th width="25%">
                                                 <#LANHostConfig_ManualName_itemname#> <a href="javascript:sortbyName();" style="outline:0;"><i class="icon-circle-arrow-down"></i></a>
                                             </th>
 					    <th width="20%">
-                                                出口序号(1开始) <a href="javascript:sortbyName();" style="outline:0;"><i class="icon-circle-arrow-down"></i></a>
+                                                PPPoE (1,2,3,...) <a href="javascript:sortbyName();" style="outline:0;"><i class="icon-circle-arrow-down"></i></a>
                                             </th>
                                             <th width="5%">
                                                 <center><a href="javascript:sortbyId();" style="outline:0;"><i class="icon-th-list"></i></a></center>
                                             </th>
                                         </tr>
                                         <tr id="row_static_header" style="display:none">
-                                            <td width="25%">
+                                            <td width="30%">
                                                 <div id="ClientList_Block" class="alert alert-info ddown-list" style="width: 400px;"></div>
                                                 <div class="input-append">
                                                     <input type="text" maxlength="12" class="span12" size="12" name="pppoemwan_mac_x_0" value="<% nvram_get_x("", "pppoemwan_mac_x_0"); %>" onkeypress="return is_hwaddr(event);" style="float:left; width: 110px"/>
                                                     <button class="btn btn-chevron" id="chevron" type="button" onclick="pullLANIPList(this);" title="Select the MAC of LAN clients."><i class="icon icon-chevron-down"></i></button>
                                                 </div>
                                             </td>
-                                            <td width="25%">
+                                            <td width="20%">
                                                 <input type="text" maxlength="15" class="span12" size="15" name="pppoemwan_ip_x_0"  value="<% nvram_get_x("", "pppoemwan_ip_x_0"); %>" onkeypress="return is_ipaddr(this,event);"/>
                                             </td>
                                             <td width="25%">
@@ -1219,18 +1219,18 @@ function simplyMAC(fullMAC){
                                             </td>
                                         </tr>
                                         <tr id="pppoemwan0">
-					<th width="30%" style="border-top: 0 none;">禁用443负载均衡（避免影响网页浏览，可能影响测速）</th>
-												  						     <td style="border-top: 0 none;">
-													<div class="main_itoggle">
-													<div id="pppoemwan_443_on_of">
-														<input type="checkbox" id="pppoemwan_443_fake" <% nvram_match_x("", "pppoemwan_443", "1", "value=1 checked"); %><% nvram_match_x("", "pppoemwan_443", "0", "value=0"); %>  />
-													</div>
-												</div>
-												<div style="position: absolute; margin-left: -10000px;">
-													<input type="radio" value="1" name="pppoemwan_443" id="pppoemwan_443_1" class="input" value="1" <% nvram_match_x("", "pppoemwan_443", "1", "checked"); %> /><#checkbox_Yes#>
-													<input type="radio" value="0" name="pppoemwan_443" id="pppoemwan_443_0" class="input" value="0" <% nvram_match_x("", "pppoemwan_443", "0", "checked"); %> /><#checkbox_No#>
-												</div>
-											</td>
+					<th>HTTPS 443 Timeout Fix</th>
+									<td style="border-top: 0 none;">
+									<div class="main_itoggle">
+											<div id="pppoemwan_443_on_of">
+												<input type="checkbox" id="pppoemwan_443_fake" <% nvram_match_x("", "pppoemwan_443", "1", "value=1 checked"); %><% nvram_match_x("", "pppoemwan_443", "0", "value=0"); %>  />
+											</div>
+										</div>
+										<div style="position: absolute; margin-left: -10000px;">
+											<input type="radio" value="1" name="pppoemwan_443" id="pppoemwan_443_1" class="input" value="1" <% nvram_match_x("", "pppoemwan_443", "1", "checked"); %> /><#checkbox_Yes#>
+											<input type="radio" value="0" name="pppoemwan_443" id="pppoemwan_443_0" class="input" value="0" <% nvram_match_x("", "pppoemwan_443", "0", "checked"); %> /><#checkbox_No#>
+										</div>
+									</td>
 
 					</tr>
 					<tr>

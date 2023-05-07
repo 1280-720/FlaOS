@@ -139,7 +139,7 @@ function done_validating(action){
 								<div class="row-fluid">
 									<div id="tabMenu" class="submenuBlock"></div>
 									<div class="alert alert-info" style="margin: 10px;">
-									<p>WireGuard 是一个易于配置、快速且安全的开源VPN<br>
+									<p>WireGuard is an easy to configure, fast and secure open source VPN<br>
 									</p>
 									</div>
 
@@ -149,7 +149,7 @@ function done_validating(action){
 
 
 										<tr>
-										<th width="30%" style="border-top: 0 none;">启用wireguard客户端</th>
+										<th width="30%" style="border-top: 0 none;">Enable Wireguard</th>
 											<td style="border-top: 0 none;">
 													<div class="main_itoggle">
 													<div id="wireguard_enable_on_of">
@@ -165,7 +165,7 @@ function done_validating(action){
 										</tr>
 
 										<tr>
-										<th>本机密钥key </th>
+										<th>Local key</th>
 				<td>
 					<input type="text" class="input" name="wireguard_localkey" id="wireguard_localkey" style="width: 200px" value="<% nvram_get_x("","wireguard_localkey"); %>" />
 				</td>
@@ -173,7 +173,7 @@ function done_validating(action){
 										</tr>
 
 										<tr>
-										<th>本机IP（格式 10.0.0.2/24）</th>
+										<th>Allowed IPs (e.g. 10.0.0.2/24)</th>
 				<td>
 					<input type="text" class="input" name="wireguard_localip" id="wireguard_localip" style="width: 200px" value="<% nvram_get_x("","wireguard_localip"); %>" />
 				</td>
@@ -181,14 +181,14 @@ function done_validating(action){
 										</tr>
 									
 										<tr>
-										<th>对端密钥key </th>
+										<th>Peer key </th>
 				<td>
 					<input type="text" class="input" name="wireguard_peerkey" id="wireguard_peerkey" style="width: 200px" value="<% nvram_get_x("","wireguard_peerkey"); %>" />
 				</td>
 
 										</tr>
 										<tr>
-										<th>对端ip:端口（格式 223.5.6.6:4900)</th>
+										<th>Endpoint (e.g. 171.6.6.6:9900)</th>
 				<td>
 					<input type="text" class="input" name="wireguard_peerip" id="wireguard_peerip" style="width: 200px" value="<% nvram_get_x("","wireguard_peerip"); %>" />
 				</td>
