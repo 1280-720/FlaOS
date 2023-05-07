@@ -1,6 +1,13 @@
 body{
-    background-color: #282828;
+    background: hsla(260, 34%, 48%, 1);
+	background: linear-gradient(315deg, hsla(260, 34%, 48%, 1) 0%, hsla(330, 53%, 77%, 1) 100%);
+	background: -moz-linear-gradient(315deg, hsla(260, 34%, 48%, 1) 0%, hsla(330, 53%, 77%, 1) 100%);
+	background: -webkit-linear-gradient(315deg, hsla(260, 34%, 48%, 1) 0%, hsla(330, 53%, 77%, 1) 100%);
+	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#6d51a5", endColorstr="#e4a7c5", GradientType=1 );
     overflow-y: scroll;
+    background-color: #E4A7C5; 
+    background-attachment: fixed;
+    background-size: cover;
 }
 body.body_iframe{
     background: #F5F5F5;
@@ -26,14 +33,17 @@ body.body_iframe{
 
 #cpu_info, #mem_info, .adv_info {
     text-decoration: none;
-    border-bottom: 1px dotted #005580;
+    *border-bottom: 1px dotted #005580;
 }
 #cpu_info:hover, #mem_info:hover, .adv_info:hover {
     cursor: pointer;
     text-decoration: none;
 }
 
-#footer{color: #F5F5F5}
+#footer {
+    color: #F5F5F5;
+    display: none;
+}
 
 .form_thin{margin-bottom: 0px}
 
@@ -225,8 +235,8 @@ ul#icons span.ui-icon {
     border-right: medium none;
 }
 .bar_nav ul li a, .side_nav ul li a {
-    border-bottom: 1px solid #DDDDDD;
-    border-top: 1px solid #FFFFFF;
+    /* border-bottom: 1px solid #DDDDDD;
+    border-top: 1px solid #FFFFFF; */
 }
 .bar_nav ul li.active:last-child > a, .side_nav ul li.active:last-child > a {
     border-radius: 0 0 0 0;
@@ -244,8 +254,8 @@ li:last-child > div.accordion > a:last-child {
     border-top: 0 solid #999999;
 }
 .bar_nav ul ul li:hover > a, .side_nav ul li:hover > a {
-    border-bottom: 1px solid #888B90;
-    border-top: 1px solid #888888;
+    /* border-bottom: 1px solid #888B90;
+    border-top: 1px solid #888888; */
     cursor: pointer;
 }
 .bar_nav > ul > li > ul li:first-child > a, .side_nav > ul li:first-child > a {
@@ -260,15 +270,15 @@ li:last-child > div.accordion > a:last-child {
 }
 
 .clearfix li.active > a {
-    border-bottom: 1px solid #666666;
-    border-top: 1px solid #888888;
+    border-bottom: 1px solid #fc5454;
+    border-top: 1px solid #fc5454;
     color: #FFFFFF;
     text-shadow: none !important;
 }
 
 .clearfix li div.accordion {
     border-top: 0 solid #FFFFFF;
-    color: #666666;
+    color: #fc5454;
 }
 
 .clearfix li div.accordion a:hover {
@@ -292,12 +302,12 @@ li div.accordion a {
 }
 .grad_grey_reverse, .bar_nav ul li:hover > a, .side_nav ul li:hover > a, .side_nav ul li.active > a {
     background: #ddd; /* old browsers */
-    background: -moz-linear-gradient(top, #a0a3a8 0%, #888b90 100%); /* firefox */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #a0a3a8), color-stop(100%, #888b90)); /* webkit */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a0a3a8', endColorstr='#888b90', GradientType=0 ); /* ie */
-    background: -o-linear-gradient(top, #a0a3a8 0%, #888b90 100%);
-    background: linear-gradient(top, #a0a3a8 0%, #888b90 100%);
-    background: -ms-linear-gradient(top, #a0a3a8 0%, #888b90 100%);
+    background: -moz-linear-gradient(top, #fc5454 0%, #f52121 100%); /* firefox */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fc5454), color-stop(100%, #f52121)); /* webkit */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f52121', endColorstr='#f52121', GradientType=0 ); /* ie */
+    background: -o-linear-gradient(top, #fc5454 0%, #f52121 100%);
+    background: linear-gradient(top, #fc5454 0%, #f52121 100%);
+    background: -ms-linear-gradient(top, #fc5454 0%, #f52121 100%);
 }
 
 .box {
@@ -314,19 +324,20 @@ li div.accordion a {
     line-height: 32px;
     margin: -1px;
     text-indent: 10px;
+    text-align: center
 }
 
 .box.grad_colour_dark_blue h2.box_head {
-    background-color: #006dcc;
-    background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
-    background-image: -ms-linear-gradient(top, #0088cc, #0044cc);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
-    background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
-    background-image: -o-linear-gradient(top, #0088cc, #0044cc);
-    background-image: linear-gradient(top, #0088cc, #0044cc);
+    background-color: #f52121;
+    background-image: -moz-linear-gradient(top, #fc5454, #f52121);
+    background-image: -ms-linear-gradient(top, #fc5454, #f52121);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fc5454), to(#f52121));
+    background-image: -webkit-linear-gradient(top, #fc5454, #f52121);
+    background-image: -o-linear-gradient(top, #fc5454, #f52121);
+    background-image: linear-gradient(top, #fc5454, #f52121);
     background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc', endColorstr='#0044cc', GradientType=0);
-    border-color: #0044cc #0044cc #002a80;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f52121', endColorstr='#f52121', GradientType=0);
+    border-color: #f52121 #f52121 #fc5454;
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -394,7 +405,7 @@ li div.accordion a {
     color:#FFFFFF;
     width:60px;
     height:13px;
-    border:1px solid #B7E1F7;
+    border:1px solid #fc5454;
 }
 #navigation-1 li ul.navigation-2 {
     margin:0;
@@ -419,7 +430,7 @@ li div.accordion a {
     background:#FFFFFF;
     padding:4px 0;
     width:60px;
-    border:1px solid #B7E1F7;
+    border:1px solid #fc5454;
     position:relative;
     z-index:1000;
 }
@@ -428,13 +439,13 @@ li div.accordion a {
     background:#FFFFFF;
     padding:4px 0;
     width:60px;
-    border:2px solid #B7E1F7;
+    border:2px solid #fc5454;
     position:relative;
     z-index:1000;
 }
 
-a.help_tooltip {border-bottom: 1px dotted grey; color: #333;}
-a.help_tooltip:hover {text-decoration: none; border-bottom: 1px dotted grey; color: #333;}
+a.help_tooltip {/* border-bottom: 1px dotted grey;*/ color: #333;}
+a.help_tooltip:hover {text-decoration: none; /* border-bottom: 1px dotted grey;*/ color: #333;}
 
 #accountMask{
     z-index:10;
@@ -603,7 +614,7 @@ textarea[readonly] {
 
 .ddown-list div:hover, .share-list a:hover {
     cursor:default;
-    color: #005580;
+    color: #800000;
 }
 
 .input-append {

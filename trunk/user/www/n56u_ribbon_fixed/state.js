@@ -421,7 +421,7 @@ if (found_app_aldriver()){
 	tabtitle[17] = new Array("", "<#menu5_36#>");
 }
 if (found_app_sqm()){
-	tabtitle[18] = new Array("", "QoS限速");
+	tabtitle[18] = new Array("", "<#menu5_37#>");
 }
 if (found_app_frp()){
 	tabtitle[19] = new Array("", "<#menu5_25#>");
@@ -530,7 +530,7 @@ if (found_app_aldriver()){
 } else menuL2_title.push("");
 
 if (found_app_sqm()){
-	menuL2_title.push("QoS限速");
+	menuL2_title.push("<#menu5_37#>");
 } else menuL2_title.push("");
 
 if (found_app_frp()){
@@ -711,7 +711,7 @@ function show_menu(L1, L2, L3){
 		if(menuL2_title[i] == "")
 			continue;
 		else if(L2 == i)
-			menu2_code += '<a href="javascript: void(0)" style="color: #005580; font-weight: bold"><i class="icon-minus"></i>&nbsp;&nbsp;'+menuL2_title[i]+'</a>\n';
+			menu2_code += '<a href="javascript: void(0)" style="color: #800000; font-weight: bold"><i class="icon-minus"></i>&nbsp;&nbsp;'+menuL2_title[i]+'</a>\n';
 		else
 			menu2_code += '<a href="'+menuL2_link[i]+'"><i class="icon-minus"></i>&nbsp;&nbsp;'+menuL2_title[i]+'</a>\n';
 	}
