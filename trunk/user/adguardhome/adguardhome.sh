@@ -128,13 +128,24 @@ EEE
 fi
 }
 
-
-
+dl_adg(){
+    logger -t "AdGuardHome" "Prepare AdGuardHome"
+    wget --no-check-certificate -O /tmp/AdGuardHome/AdGuardHome https://github.com/hiedaze/pre-extracted/releases/download/v1.0/AdGuardHome-mipsle-softfloat
+    if [ ! -f "/tmp/AdGuardHome/AdGuardHome" ]; then
+    logger -t "AdGuardHome" "Preparing failed, please check if you can access github normally! The program will now exit"
+    nvram set adg_enable=0
+    exit 0
+    else
+    logger -t "AdGuardHome" "AdGuardHome is ready to use"
+    chmod 777 /tmp/AdGuardHome/AdGuardHome
+    fi
+}
+    
 start_adg(){
     mkdir -p /tmp/AdGuardHome
 	mkdir -p /etc/storage/AdGuardHome
 	if [ ! -f "/tmp/AdGuardHome/AdGuardHome" ]; then
-	cp /usr/bin/AdGuardHome /tmp/AdGuardHome/AdGuardHome
+	dl_adg
 	fi
 	getconfig
 	change_dns
