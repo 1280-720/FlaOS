@@ -658,7 +658,8 @@ struct nvram_pair router_defaults[] = {
 	{ "d_update_link", "" },
 	{ "ss_keyword", "过期时间/剩余流量" },
 #endif
-	
+
+#if defined(APP_ADBYBY)
 	/*Adbyby PlUS+*/
 	{ "adbyby_enable", "0" },
 	{ "adbyby_set", "0" },
@@ -676,11 +677,18 @@ struct nvram_pair router_defaults[] = {
 	{ "anti_ad", "0" },
 	{ "anti_ad_link", "https://anti-ad.net/anti-ad-for-dnsmasq.conf" },
 	{ "anti_ad_count", "0" },
-	/* Pdnsd */
+#endif
+
+
+#if defined(APP_PDNSD)
+	/* Pdnsd, not sure if it works or not */
 	{ "dns_enable", "0" },
 	{ "dns_server", "223.5.5.5,114.114.114.114" },
 	{ "dns_server_port", "5333" },
 	{ "dns_server_bind", "0.0.0.0" },
+#endif
+
+#if defined(APP_ALIDDNS)
 	/* Aliddns */
 	{ "aliddns_enable", "0" },
 	{ "aliddns_interval", "600" },
@@ -693,7 +701,8 @@ struct nvram_pair router_defaults[] = {
 	{ "aliddns_domain", "" },
 	{ "aliddns_domain2", "" },
 	{ "aliddns_domain6", "" },
-	
+#endif
+
 #if defined(APP_ADGUARDHOME)	
 	/* AdguargHome */
 	{ "adg_enable", "0" },
@@ -754,8 +763,9 @@ struct nvram_pair router_defaults[] = {
 	{ "ss_white", "0" },
 	{ "ss_black", "0" },
 #endif
-	
-	/*UnblockNeteaseMusic*/
+
+#if defined(APP_WYY)
+	/*UnblockNeteaseMusic, this one too*/
 	{ "wyy_enable", "0" },
 	{ "wyy_apptype", "cloud" },
 	{ "wyy_cloudserver", "cdn-shanghai.service.project-openwrt.eu.org:30000:30001" },
@@ -764,17 +774,22 @@ struct nvram_pair router_defaults[] = {
 	{ "wyy_coustom_music", "" },
 	{ "wyy_flac", "0" },
 	{ "wyy_staticnum_x", "0" },
-	
+#endif
+
+#if defined(APP_ZEROTIER)	
 	/*Zerotier*/
 	{ "zerotier_enable", "0" },
 	{ "zerotier_id", "" },
 	{ "zerotier_nat", "0" },
 	{ "zerotier_secret", "" },
 	{ "zero_staticnum_x", "0" },
+#endif
 
+#if defined(APP_DDNSTO)
 	/*DDNSTO*/
 	{ "ddnsto_enable", "0" },
 	{ "ddnsto_id", "" },
+#endif
 
 #if defined(APP_ALDRIVER)
 	/*阿里云盘*/
@@ -912,7 +927,7 @@ struct nvram_pair router_defaults[] = {
 	{ "ddns2_ssl", "0" },
 	{ "asusddns_tos_agreement", "0" },
 
-	{ "preferred_lang", "CN" },
+	{ "preferred_lang", "EN" },
 
 	{ "modem_rule", "0" },
 	{ "modem_prio", "1" },
@@ -1220,6 +1235,7 @@ struct nvram_pair tables_defaults[] = {
 	{"pppoemwan_name_x", "" },
 	{"pppoemwan_interface_x", "" },
 
+#if defined(APP_ADBYBY)
 	{"adbybyip_mac_x", "" },
 	{"adbybyip_ip_x", "" },
 	{"adbybyip_name_x", "" },
@@ -1227,6 +1243,7 @@ struct nvram_pair tables_defaults[] = {
 
 	{"adbybyrules_x", "" },
 	{"adbybyrules_road_x", "" },
+#endif
 
 	{ "vpns_user_x", "" },
 	{ "vpns_pass_x", "" },
