@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><#Web_Title#> - AdGuard Home</title>
+<title><#Web_Title#> - AdGuardHome</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
@@ -131,14 +131,13 @@ function done_validating(action){
 								<div class="row-fluid">
 									<div id="tabMenu" class="submenuBlock"></div>
 									<div class="alert alert-info" style="margin: 10px;">
-									<p>AdGuard Home là phần mềm chặn quảng cáo và chống theo dõi trên toàn bộ web. Sau khi cài đặt, phần mềm sẽ áp dụng cho tất cả các thiết bị đang kết nối và không cần cài đặt bất kỳ phần mềm ứng dụng nào khác. Với sự bùng nổ của Internet vạn vật, việc kiểm soát môi trường mạng của chính bạn ngày càng trở nên quan trọng. Tên người dùng và mật khẩu mặc định là adguardhome, có thể được sửa đổi trong /etc/storage/adg.sh.
+									<p>Username/Password: adguardhome (/etc/storage/adg.sh).
 									</p>
-									Trang chủ AdGuard Home: <a href="https://adguard.com/" target="blank"><i><u>https://adguard.com/</u></i></a>
 									</div>
 
 									<table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
 										<tr>
-											<th width="30%" style="border-top: 0 none;">Sử dụng AdGuardHome</th>
+											<th width="30%" style="border-top: 0 none;">AdGuardHome</th>
 											<td style="border-top: 0 none;">
 													<div class="main_itoggle">
 													<div id="adg_enable_on_of">
@@ -153,17 +152,17 @@ function done_validating(action){
 										</tr>
 										</tr>
                                          <tr>
-											<th><a class="help_tooltip" href="javascript: void(0)" onmouseover="openTooltip(this, 1, 1);">Chuyển hướng DNS</a></th>
+											<th><a class="help_tooltip" href="javascript: void(0)" onmouseover="openTooltip(this, 1, 1);">DNS redirect</a></th>
 											<td>
 												<select name="adg_redirect" class="input" style="width: 200px">
-													<option value="0" <% nvram_match_x("","adg_redirect", "0","selected"); %>>Không</option>
-													<option value="1" <% nvram_match_x("","adg_redirect", "1","selected"); %>>Tương thích ngược với dnsmasq</option>
-													<option value="2" <% nvram_match_x("","adg_redirect", "2","selected"); %>>Chuyển hướng toàn bộ cổng 53 tới Adguard Home</option>
+													<option value="0" <% nvram_match_x("","adg_redirect", "0","selected"); %>>No</option>
+													<option value="1" <% nvram_match_x("","adg_redirect", "1","selected"); %>>dnsmasq-compat</option>
+													<option value="2" <% nvram_match_x("","adg_redirect", "2","selected"); %>>Port 53 >> AdguardHome</option>
 												</select>
 											</td>
 										</tr>
 										<tr>
-											<th>IP giao diện quản lý:</th>
+											<th>IP config:</th>
 											<td>
 											<a href="http://<% nvram_get_x("", "lan_ipaddr"); %>:3030">http://<% nvram_get_x("", "lan_ipaddr"); %>:3030</a>
 											</td>
