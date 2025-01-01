@@ -16,7 +16,7 @@
 	leds {
 		compatible = "gpio-leds";
 
-		sys {
+		sys_blue {
 			label = "power";
 			gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
 		};
@@ -57,12 +57,12 @@
 			#size-cells = <1>;
 
 			partition@0 {
-				label = "u-boot";
+				label = "Bootloader";
 				reg = <0x00000 0x80000>; /* 512k */
 			};
 			
 			partition@80000 {
-				label = "u-boot-env";
+				label = "CFG_Bdata";
 				reg = <0x80000 0x80000>; /* 512k */
 			};
 			
@@ -72,12 +72,12 @@
 			};
 
 			partition@2e0000 {
-				label = "factory2";
+				label = "factory_stock";
 				reg = <0x2e0000 0x100000>; /* 1024k */
 			};
 
 			partition@600000 {
-				label = "Firmware";
+				label = "firmware";
 				reg = <0x600000 0x1400000>; /* 20M */
 			};
 
