@@ -20,13 +20,12 @@
 			label = "power";
 			gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
 		};
-
+	};
 	gpio-keys-polled {
 		compatible = "gpio-keys-polled";
 		#address-cells = <1>;
 		#size-cells = <0>;
 		poll-interval = <20>;
-		};
 
 		reset {
 			label = "reset";
