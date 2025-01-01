@@ -26,6 +26,7 @@
 		#address-cells = <1>;
 		#size-cells = <0>;
 		poll-interval = <20>;
+		};
 
 		reset {
 			label = "reset";
@@ -62,7 +63,7 @@
 			};
 			
 			partition@80000 {
-				label = "CFG_Bdata";
+				label = "u-boot-env";
 				reg = <0x80000 0x80000>; /* 512k */
 			};
 			
@@ -72,7 +73,7 @@
 			};
 
 			partition@2e0000 {
-				label = "factory_stock";
+				label = "factory2";
 				reg = <0x2e0000 0x100000>; /* 1024k */
 			};
 
