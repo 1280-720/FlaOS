@@ -94,8 +94,8 @@
 
 			partition@1e80000 {
 				label = "RWFS";
-				reg = <0x1e80000 0x51a0000>;
-			}; /* 81625K */
+				reg = <0x1e80000 0x5000000>; /* 80M */
+			};
 
 			partition@all {
 				label = "ALL";
